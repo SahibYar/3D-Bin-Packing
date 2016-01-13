@@ -25,6 +25,7 @@ namespace _3D_Bin_Packing
         private void addxmlbutton_Click(object sender, EventArgs e)
         {
             DialogResult result = XML_openFileDialog.ShowDialog();
+
             if (result == DialogResult.OK)
             {
                 try
