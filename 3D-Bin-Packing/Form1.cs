@@ -19,7 +19,7 @@ namespace _3D_Bin_Packing
 
             // loading the 3d_icon.png as bitmap image to be displayed as form icon
             Bitmap bmp = Properties.Resources._3d_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());           
+            this.Icon = Icon.FromHandle(bmp.GetHicon());            
         }
 
         private void addxmlbutton_Click(object sender, EventArgs e)
