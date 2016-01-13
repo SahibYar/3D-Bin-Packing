@@ -28,6 +28,7 @@ namespace _3D_Bin_Packing
 
             if (result == DialogResult.OK)
             {
+
                 try
                 {
                     filePath = XML_openFileDialog.FileName;
