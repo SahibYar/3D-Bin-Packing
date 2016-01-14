@@ -96,6 +96,7 @@
             this.generateButton.TabIndex = 8;
             this.generateButton.Text = "Calculate Results";
             this.generateButton.UseVisualStyleBackColor = true;
+            this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
             // Form1
             // 

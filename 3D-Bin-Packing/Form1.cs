@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace _3D_Bin_Packing
 {
@@ -39,6 +34,13 @@ namespace _3D_Bin_Packing
                     MessageBox.Show("Error: Could not read xml file from disk.\nError Message: " + ex.Message);
                 }
             }
+        }
+
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            XmlDocument document = new XmlDocument();
+            document.Load(@""+xmlFileLabel.Text.ToString());
+            XmlElement element = document.DocumentElement;
         }
     }
 }
