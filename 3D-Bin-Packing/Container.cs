@@ -33,7 +33,7 @@ namespace _3D_Bin_Packing
            / |             / |
           E--|------------F  |
           |  |            |  |
-      Orig|in------------|--D
+      Orig|in-------------|--D
           | /             | /
           G/--------------H/
         
@@ -53,12 +53,6 @@ namespace _3D_Bin_Packing
         {
             get { return this.b_still_to_open; }
             set { this.b_still_to_open = value; }
-        }
-
-        public Boolean Currenlty_Open
-        {
-            get { return this.b_currently_open; }
-            set { this.b_currently_open = value; }
         }
 
         public Boolean Closed
