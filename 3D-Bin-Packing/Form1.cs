@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Xml;
-using System.Collections;
 
 namespace _3D_Bin_Packing
 {
@@ -39,6 +38,11 @@ namespace _3D_Bin_Packing
 
         private void generateButton_Click(object sender, EventArgs e)
         {
+            Load_Data();
+        }   //ending the event handler for Generate button
+
+        private void Load_Data()
+        {
             // Created an Optimization object for storing the OptimizationID
             // and OptimizationType of given xml file.
             Optimization optimization_object = new Optimization();
@@ -47,22 +51,16 @@ namespace _3D_Bin_Packing
             // Length, MinLength.... of the given Container
             Containers container_object = new Containers();
 
-            // Created a list of containers for holding all the container objects
-            ArrayList ContainerList = new ArrayList();
-
             // Created an Box object for storing the BoxID, Quantity,
             // Length.... of the given Box
             Box box_object = new Box();
 
-            // Created a list of boxes for holding all the box objects
-            ArrayList BoxList = new ArrayList();
-            
             // Create a new xml document 
             XmlDocument document = new XmlDocument();
 
             // loaded the newly created xml document with the input of xml 
             // file path
-            document.Load(@""+xmlFileLabel.Text.ToString());
+            document.Load(@"" + xmlFileLabel.Text.ToString());
 
             // Created a list of all the child nodes of <xml> tag
             // which include OptimizationID, OptimizationType,
@@ -78,7 +76,6 @@ namespace _3D_Bin_Packing
                 XmlNode Containers = xn.SelectSingleNode("Containers");
                 XmlNode Boxes = xn.SelectSingleNode("Boxes");
 
-
                 // assigning the text of OptimizationID to Optimization class object
                 if (OptimizationID != null)
                 {
@@ -89,7 +86,7 @@ namespace _3D_Bin_Packing
                 if (OptimizationType != null)
                 {
                     optimization_object.OptimizationType = OptimizationType.InnerText;
-                }      
+                }
 
                 if (Containers != null)
                 {
@@ -98,6 +95,7 @@ namespace _3D_Bin_Packing
                     {
                         if (node != null)
                         {
+                            Point3D point = new Point3D();
                             container_object.ContainerID = node["ContainerID"].InnerText;
 
                             container_object.Length = Int32.Parse(node["Length"].InnerText);
@@ -117,8 +115,16 @@ namespace _3D_Bin_Packing
 
                             container_object.MaxWeight = Double.Parse(node["MaxWeight"].InnerText);
                             container_object.MaxCount = Int32.Parse(node["MaxCount"].InnerText);
+                            container_object.Still_to_Open = true;
+                            container_object.Closed = false;
+                            container_object.Currenlty_Open = false;
 
-                            ContainerList.Add(container_object);
+                            point.X = 0.0F;
+                            point.Y = 0.0F;
+                            point.Z = 0.0F;
+                            container_object.Origin = point;
+
+                            Guillotine3D.ContainerList.Add(container_object.ContainerID, container_object);
                         }   // ending if (node != null)
                     }   // ending foreach loop
                 }   // ending if (Containers != null)
@@ -135,6 +141,7 @@ namespace _3D_Bin_Packing
                         box_object.Height = Int32.Parse(box["Height"].InnerText);
                         box_object.Weight = Double.Parse(box["Weight"].InnerText);
                         box_object.AllowedRotations = box["AllowedRotations"].InnerText;
+                        box_object.IsPlaced = false;
 
                         if (box["TopOnly"].InnerText.ToUpper() == "FALSE")
                             box_object.TopOnly = false;
@@ -145,10 +152,11 @@ namespace _3D_Bin_Packing
                             box_object.TopOnly = false;
                         else
                             box_object.TopOnly = true;
-                        BoxList.Add(box_object);
+
+                        Guillotine3D.BoxList.Add(box_object.BoxID, box_object);
                     }   // ending foreach (XmlNode box in boxlist)
                 }   // ending If (Boxes != null)
             }   // ending foreach (XmlNode xn in xnList)
-        }   //ending the event handler for Generate button
+        }      //ending the Load_Data() function
     }   // ending Form1 class
 }  // ending namespace

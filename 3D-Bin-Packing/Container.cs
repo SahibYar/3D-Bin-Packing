@@ -23,9 +23,50 @@ namespace _3D_Bin_Packing
 
         private Double c_maxWeight;
         private Int32 c_maxCount;
+
+        private Boolean b_still_to_open;
+        private Boolean closed;
+
+        /*
+             A---------------B
+            /|              /|
+           / |             / |
+          E--|------------F  |
+          |  |            |  |
+      Orig|in------------|--D
+          | /             | /
+          G/--------------H/
+        
+        */
+        private Point3D origin;
         #endregion
 
         #region properties
+
+        public Point3D Origin
+        {
+            get { return this.origin; }
+            set { this.origin = value; }
+        }
+
+        public Boolean Still_to_Open
+        {
+            get { return this.b_still_to_open; }
+            set { this.b_still_to_open = value; }
+        }
+
+        public Boolean Currenlty_Open
+        {
+            get { return this.b_currently_open; }
+            set { this.b_currently_open = value; }
+        }
+
+        public Boolean Closed
+        {
+            get { return this.closed; }
+            set { this.closed = value; }
+        }
+
         public String ContainerID
         {
             get { return this.c_id; }

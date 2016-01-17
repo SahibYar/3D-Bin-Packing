@@ -14,9 +14,15 @@ namespace _3D_Bin_Packing
         private String b_allowedRotation;
         private Boolean b_toponly;
         private Boolean b_bottomonly;
+        private Boolean b_is_placed;
         #endregion
 
         #region Properties
+        public Boolean IsPlaced
+        {
+            get { return this.b_is_placed; }
+            set { this.b_is_placed = value; }
+        }
         public String BoxID
         {
             get { return this.b_id; }
