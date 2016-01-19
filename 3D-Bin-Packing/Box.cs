@@ -11,10 +11,27 @@ namespace _3D_Bin_Packing
         private Int32 b_width;
         private Int32 b_height;
         private Double b_weight;
-        private String b_allowedRotation;
+        private Boolean b_allowedRotation_x;
+        private Boolean b_allowedRotation_y;
+        private Boolean b_allowedRotation_z;
         private Boolean b_toponly;
         private Boolean b_bottomonly;
         private Boolean b_is_placed;
+        #endregion
+
+        #region Functions
+
+        //Returns true if Box i > Box j else false
+        public static Boolean compareVolume(Box i, Box j)
+        {
+            return ((i.Height * i.Width * i.Length) > (j.Height * j.Width * j.Length));
+        }
+
+        //returns volume of a box;
+        public Double Volume ()
+        {
+            return Height * Width * Length;
+        }
         #endregion
 
         #region Properties
@@ -71,10 +88,22 @@ namespace _3D_Bin_Packing
             set { this.b_bottomonly = value; }
         }
 
-        public String AllowedRotations
+        public Boolean AllowedRotationsX
         {
-            get { return this.b_allowedRotation; }
-            set { this.b_allowedRotation = value; }
+            get { return this.b_allowedRotation_x; }
+            set { this.b_allowedRotation_x = value; }
+        }
+
+        public Boolean AllowedRotationsY
+        {
+            get { return this.b_allowedRotation_y; }
+            set { this.b_allowedRotation_y = value; }
+        }
+
+        public Boolean AllowedRotationsZ
+        {
+            get { return this.b_allowedRotation_z; }
+            set { this.b_allowedRotation_z = value; }
         }
         #endregion
     }

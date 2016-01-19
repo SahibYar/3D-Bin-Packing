@@ -117,8 +117,8 @@ namespace _3D_Bin_Packing
                             container_object.MaxCount = Int32.Parse(node["MaxCount"].InnerText);
                             container_object.Still_to_Open = true;
                             container_object.Closed = false;
-                            container_object.Currenlty_Open = false;
 
+                            
                             point.X = 0.0F;
                             point.Y = 0.0F;
                             point.Z = 0.0F;
@@ -140,7 +140,22 @@ namespace _3D_Bin_Packing
                         box_object.Width = Int32.Parse(box["Width"].InnerText);
                         box_object.Height = Int32.Parse(box["Height"].InnerText);
                         box_object.Weight = Double.Parse(box["Weight"].InnerText);
-                        box_object.AllowedRotations = box["AllowedRotations"].InnerText;
+
+                        if (box["AllowedRotations"].InnerText.Contains("X"))
+                            box_object.AllowedRotationsX = true;
+                        else
+                            box_object.AllowedRotationsX = false;
+
+                        if (box["AllowedRotations"].InnerText.Contains("Y"))
+                            box_object.AllowedRotationsY = true;
+                        else
+                            box_object.AllowedRotationsY = false;
+
+                        if (box["AllowedRotations"].InnerText.Contains("Z"))
+                            box_object.AllowedRotationsZ = true;
+                        else
+                            box_object.AllowedRotationsZ = false;
+
                         box_object.IsPlaced = false;
 
                         if (box["TopOnly"].InnerText.ToUpper() == "FALSE")

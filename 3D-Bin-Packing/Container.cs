@@ -41,6 +41,13 @@ namespace _3D_Bin_Packing
         private Point3D origin;
         #endregion
 
+        #region Functions
+        public Double volume()
+        {
+            return Height * Length * Width;
+        }
+        #endregion
+        
         #region properties
 
         public Point3D Origin
