@@ -90,7 +90,7 @@ namespace _3D_Bin_Packing
 
                 if (Containers != null)
                 {
-                    XmlNodeList innercontainers = Containers.SelectNodes("Containers/Containers");
+                    XmlNodeList innercontainers = Containers.SelectNodes("Containers/Container");
                     foreach (XmlNode node in innercontainers)
                     {
                         if (node != null)
