@@ -23,6 +23,8 @@ namespace _3D_Bin_Packing
         Dictionary<String, List<Box>> Container_Containing_Boxes = new Dictionary<string, List<Box>>();
 
         List<KeyValuePair<String, Box>> sorted_box_List;
+        
+        
         /*
         return the container which has the 
         smallest volume of all the unopened containers;
@@ -114,8 +116,8 @@ namespace _3D_Bin_Packing
 
                         else if (box.AllowedRotationsY &&
                             container.Width >= box.Width &&
-                            container.Length >= box.Width &&
-                            container.Width >= box.Length)
+                            container.Length >= box.Height &&
+                            container.Height >= box.Length)
                             return true;
                     }
                 }
@@ -153,8 +155,8 @@ namespace _3D_Bin_Packing
                         //along Y-axis rotation is allowed
                         else if (box.AllowedRotationsY &&
                             container.Width >= box.Width &&
-                            container.Length >= box.Width &&
-                            container.Width >= box.Length)
+                            container.Length >= box.Height &&
+                            container.Height >= box.Length)
                             return true;
                     }
                 }
@@ -190,12 +192,11 @@ namespace _3D_Bin_Packing
                         //along Y-axis rotation is allowed
                         else if (box.AllowedRotationsY &&
                             container.Width >= box.Width &&
-                            container.Length >= box.Width &&
-                            container.Width >= box.Length)
+                            container.Length >= box.Height &&
+                            container.Height >= box.Length)
                             return true;
                     }
                 }
-
                 //after mergin top_only containers
             }
 
