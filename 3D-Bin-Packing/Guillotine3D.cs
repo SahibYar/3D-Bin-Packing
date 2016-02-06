@@ -94,6 +94,16 @@ namespace _3D_Bin_Packing
         }
 
 
+        // this function checks if the container has enough weight limit remaning
+        Boolean has_free_weight(String Container_key, Box box)
+        {
+            List<Box> temp_list = Container_Containing_Boxes[Container_key];
+            Double weight = box.Weight;
+
+            foreach (Box ibox in temp_list) weight += ibox.Weight;
+            if (weight >= ContainerList[Container_key].MaxWeight) return false;
+            else return true;
+        } 
 
         // This functions checks if the given box can be contained in the container.
         Point3D has_free_space(String Container_Key, Box box)
