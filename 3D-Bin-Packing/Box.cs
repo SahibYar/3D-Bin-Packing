@@ -16,7 +16,16 @@ namespace _3D_Bin_Packing
         private Boolean b_allowedRotation_z;
         private Boolean b_toponly;
         private Boolean b_bottomonly;
+
+        //for output
         private Boolean b_is_placed;
+
+        private Boolean Rotation_x;
+        private Boolean Rotation_y;
+        private Boolean Rotation_z;
+
+        private String container_id;    // id of the container, in which it is placed.
+        private Point3D origin; //Point where its origin lies in the container;
         #endregion
 
         #region Functions
@@ -104,6 +113,36 @@ namespace _3D_Bin_Packing
         {
             get { return this.b_allowedRotation_z; }
             set { this.b_allowedRotation_z = value; }
+        }
+
+        public Boolean RotationX
+        {
+            get { return this.Rotation_x; }
+            set { this.Rotation_x = value; }
+        }
+
+        public Boolean RotationY
+        {
+            get { return this.Rotation_y; }
+            set { this.Rotation_y = value; }
+        }
+
+        public Boolean RotationZ
+        {
+            get { return this.Rotation_z; }
+            set { this.Rotation_z = value; }
+        }
+
+        public String ContainerID
+        {
+            get { return this.container_id; }
+            set { this.container_id = value; }
+        }
+
+        public Point3D Origin
+        {
+            get { return this.origin; }
+            set { this.origin = value; }
         }
         #endregion
     }
