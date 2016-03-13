@@ -13,12 +13,3 @@ The optimal calculated container box(es) is(are) almost cubic (if possible), hav
 Project Description can be viewed further <a href="https://github.com/SahibYar/3D-Bin-Packing/files/89321/3D.binning.problem.-.Project.Description.docx">here in the documentation</a>
 </li>
 </ul>
-
-<div class='fln-hireme' data-username='SahibYar' data-style='plain_footer' data-type='badge' data-bg='' data-theme='' ></div>
-
-<script type='text/javascript'>(function(d) {
-    var po = d.createElement('script');
-    po.type = 'text/javascript'; po.async = true; po.src = '//static.flnwdgt.com/build/js/hireme-sdk.js';
-    var s = d.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(po, s);
-})(document);</script>
