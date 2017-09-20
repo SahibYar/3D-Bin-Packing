@@ -4,6 +4,7 @@
 
 <i>A freelance project for packing the goods efficiently using some heuristic algorithms </i>
 
+# Note: This project is currently under development.
 <h4>3D BIN PACKING PROBLEM</h4>
 Development of an Optimization software for calculation of the best container box for a given amount of items (boxes) with 2 possibilities:
 <ul>
