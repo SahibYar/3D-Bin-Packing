@@ -1,6 +1,6 @@
 # 3d Bin Packing
 [![Build Status](https://img.shields.io/codeship/d6c1ddd0-16a3-0132-5f85-2e35c05e22b1/master.svg)]()
-[![License](https://img.shields.io/hexpm/l/plug.svg)]()
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://raw.githubusercontent.com/SahibYar/3D-Bin-Packing/local_branch/LICENSE)
 
 <i>A freelance project for packing the goods efficiently using some heuristic algorithms </i>
 
